@@ -1,0 +1,267 @@
+/* ================================
+   App.css
+   Auth Pages, Owl Animation & Settings
+================================ */
+
+/* =========================================
+   1. AUTH CONTAINER & GLOWING ORBS
+========================================= */
+.auth-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  padding: 20px;
+}
+
+/* ✨ Trendy Glowing Background Orbs */
+.auth-container::before,
+.auth-container::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  animation: floatOrb 10s infinite alternate ease-in-out;
+  opacity: 0.3;
+}
+
+.auth-container::before {
+  background: var(--brand);
+  top: -10%;
+  left: -10%;
+}
+
+.auth-container::after {
+  background: var(--success, #10b981);
+  bottom: -10%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+/* =========================================
+   2. MASTER AUTH WRAPPER
+========================================= */
+.auth-box {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 80px; /* Leaves space for the owl's head */
+  z-index: 10;
+}
+
+/* =========================================
+   3. 🦉 OWL & SUNGLASSES ANIMATION
+========================================= */
+.owl-wrapper {
+  position: absolute;
+  /* Adjust this value if the owl is too high/low */
+  top: -100px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px; 
+  height: 120px;
+  
+  /* 🔥 THE OWL BODY */
+  background-image: url('/public/owl-login.png');
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  
+  z-index: 1; /* Behind the card */
+}
+
+/* 🕶️ THE SUNGLASSES */
+.owl-sunglasses {
+  position: absolute;
+  width: 114px; /* Adjust width to fit owl face */
+  left: 50%;
+  
+  /* STARTING STATE: Floating high above, invisible */
+  transform: translateX(-50%) translateY(-80px);
+  opacity: 0;
+  
+  /* The Drop Animation */
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 😎 ACTIVE STATE: DROP THE GLASSES */
+.owl-wrapper.is-focused .owl-sunglasses {
+  /* ENDING STATE: On the eyes */
+  /* Tweak '35px' up/down to align perfectly with eyes */
+  transform: translateX(-50%) translateY(22px); 
+  opacity: 1;
+}
+
+/* =========================================
+   4. 🪟 THE GLASS AUTH CARD
+========================================= */
+.auth-card-content {
+  position: relative;
+  z-index: 2; /* In front of the owl's bottom half */
+  
+  /* Glassmorphism */
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  
+  opacity: 0;
+  animation: authPop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text) 0%, var(--brand) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-header p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* SLEEK INPUTS */
+.auth-input-group {
+  margin-bottom: 1.25rem;
+}
+
+.auth-input-group input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: var(--bg); 
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02) inset;
+}
+
+.auth-input-group input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 20%, transparent);
+}
+
+/* BUTTON */
+.auth-btn-massive {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-hover, var(--brand)) 100%);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--brand) 40%, transparent);
+}
+
+.auth-btn-massive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--brand) 50%, transparent);
+}
+
+.auth-btn-massive:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* LINKS */
+/* ================================
+   App.css (Partial Update)
+================================ */
+
+/* LINKS */
+.auth-links {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 🔥 Centers items horizontally */
+  gap: 0.8rem;
+}
+
+.auth-links a {
+  color: var(--brand);
+  font-weight: 600;
+  position: relative;
+  text-decoration: none;
+  
+  /* 🔥 FIX: Ensures the link is only as wide as the text */
+  width: fit-content; 
+  display: inline-block; 
+}
+
+/* The Animated Underline */
+.auth-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--brand);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.auth-links a:hover::after {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+/* =========================================
+   SETTINGS PAGE STYLES
+========================================= */
+.settings-page { max-width: 600px; width: 100%; animation: fadeIn 0.4s ease forwards; }
+.settings-card { margin-top: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1); }
+.setting-control { display: flex; align-items: center; gap: 1.5rem; margin: 1.5rem 0; }
+.setting-control label { flex: 1; font-weight: 600; color: var(--text); }
+.setting-control input[type="range"] { flex: 2; height: 6px; background: var(--border); border-radius: 10px; outline: none; }
+.setting-control input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--brand); cursor: pointer; box-shadow: 0 0 10px color-mix(in srgb, var(--brand) 50%, transparent); transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.setting-control input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.setting-control span { width: 60px; text-align: right; font-size: 0.9rem; font-weight: 700; color: var(--brand); }
+
+/* =========================================
+   UTILITIES
+========================================= */
+hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 2rem 0; }
+.error-text { color: var(--danger, #ef4444); background: rgba(239, 68, 68, 0.1); padding: 0.75rem; border-radius: 8px; font-size: 0.9rem; text-align: center; margin-bottom: 1.25rem; border: 1px solid rgba(239, 68, 68, 0.2); }
+.auth-success { color: var(--success, #10b981); background: rgba(16, 185, 129, 0.1); padding: 0.75rem; border-radius: 8px; font-size: 0.9rem; text-align: center; margin-bottom: 1.25rem; border: 1px solid rgba(16, 185, 129, 0.2); }
+
+@keyframes authPop { 0% { opacity: 0; transform: translateY(20px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -30px) scale(1.1); } }
+
+@media (max-width: 480px) {
+  .auth-card-content { padding: 2rem 1.5rem; }
+  .auth-container::before, .auth-container::after { width: 250px; height: 250px; }
+}

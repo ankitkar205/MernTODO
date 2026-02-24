@@ -1,0 +1,77 @@
+/* ================================
+   topbar.css
+   Global Top Navigation (SEXY EDITION ✨)
+================================ */
+
+.topbar-root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  height: 72px; /* Fixed height for consistency */
+}
+
+/* ---------- Left ---------- */
+.topbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.topbar-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  /* Subtle gradient text */
+  background: linear-gradient(135deg, var(--text) 0%, var(--text-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Right ---------- */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ---------- Divider ---------- */
+.topbar-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+/* ---------- Action Button (Theme Toggle) ---------- */
+.topbar-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+}
+
+.topbar-action:hover {
+  background: var(--surface);
+  color: var(--brand);
+  border-color: var(--border);
+  transform: rotate(15deg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .topbar-root {
+    padding: 0.75rem 1rem;
+    height: auto;
+  }
+
+  .topbar-title {
+    font-size: 1.1rem;
+  }
+}

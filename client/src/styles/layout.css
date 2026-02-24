@@ -1,0 +1,124 @@
+/* ================================
+   layout.css
+   Core App Structure (SEXY EDITION ✨)
+================================ */
+
+/* ---------- Root Layout ---------- */
+.app-root {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  overflow: hidden; /* Prevents double scrollbars */
+}
+
+/* ---------- Sidebar ---------- */
+.app-sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+/* ---------- Main Container ---------- */
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--bg);
+  position: relative;
+}
+
+/* ---------- Topbar (Glass Effect) ---------- */
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+/* ---------- Page Content ---------- */
+.app-page {
+  flex: 1;
+  padding: var(--space-xl);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  /* Subtle ambient gradient */
+  background: radial-gradient(circle at top right, var(--bg-soft), var(--bg) 40%);
+}
+
+/* ---------- Page Containers ---------- */
+section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  animation: fadeInPage 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Scrollbars (Hover Reveal) ---------- */
+.app-page::-webkit-scrollbar {
+  width: 8px;
+}
+
+.app-page::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.app-page::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 99px;
+  transition: background 0.3s;
+}
+
+.app-page:hover::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+.app-page::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .app-sidebar {
+    width: 80px; /* Collapsed view logic usually goes here, but specific width for now */
+    min-width: 80px;
+  }
+  
+  .app-page {
+    padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-root {
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .app-sidebar {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 30;
+  }
+
+  .app-page {
+    padding: var(--space-md);
+  }
+}

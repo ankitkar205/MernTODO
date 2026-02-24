@@ -1,0 +1,29 @@
+/* client/src/styles/task-list.css */
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Card overrides specific to List View */
+.task-list .task-card {
+  flex-direction: column; /* Ensure vertical stacking */
+  gap: 8px;
+  padding: 1.5rem;
+}
+
+.completed-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-empty {
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  color: var(--text-muted);
+}

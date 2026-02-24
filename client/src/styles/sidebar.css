@@ -1,0 +1,214 @@
+/* ================================
+   sidebar.css
+   Navigation Spine (SEXY EDITION ✨)
+================================ */
+
+.sidebar-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  background: var(--surface);
+}
+
+/* ---------- Header / Brand ---------- */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+  padding-left: 0.5rem;
+}
+
+.sidebar-logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-hover) 100%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px -4px color-mix(in srgb, var(--brand) 40%, transparent);
+}
+
+.sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.sidebar-logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.sidebar-workspace {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Navigation ---------- */
+.sidebar-nav {
+  flex: 1;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  color: var(--text-soft);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.sidebar-link:hover {
+  background: var(--bg-soft);
+  color: var(--text);
+  transform: translateX(4px);
+}
+
+/* ---------- Active State ---------- */
+.sidebar-link.active {
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.sidebar-link.active::before {
+  content: '';
+  position: absolute;
+  left: -16px; /* Outside padding */
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 4px;
+  background: var(--brand);
+  border-radius: 0 4px 4px 0;
+}
+
+.sidebar-icon {
+  font-size: 1.25em;
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-link:hover .sidebar-icon {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* ---------- Footer / Secondary ---------- */
+.sidebar-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 1.5rem 0;
+}
+
+.sidebar-nav.secondary .sidebar-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.sidebar-nav.secondary .sidebar-link:hover {
+  color: var(--text);
+}
+/* Sidebar Additions for New Menu */
+.sidebar-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+  padding-left: 1rem;
+}
+
+.sidebar-count {
+  background: color-mix(in srgb, var(--brand) 20%, transparent);
+  color: var(--brand);
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.sidebar-link { cursor: pointer; }
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .sidebar-root {
+    padding: var(--space-md);
+    align-items: center;
+  }
+  
+  .sidebar-brand-text, 
+  .sidebar-label {
+    display: none;
+  }
+  
+  .sidebar-header {
+    margin-bottom: 2rem;
+    padding-left: 0;
+  }
+  
+  .sidebar-link {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+  
+  .sidebar-link:hover {
+    transform: none;
+    background: var(--bg-soft);
+  }
+  
+  .sidebar-link.active::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-root {
+    flex-direction: row;
+    height: auto;
+    padding: 1rem;
+    justify-content: space-between;
+  }
+  
+  .sidebar-header {
+    margin-bottom: 0;
+  }
+  
+  .sidebar-nav {
+    flex: 0;
+  }
+  
+  .sidebar-list {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .sidebar-icon {
+    font-size: 1.4rem;
+  }
+  
+  .sidebar-divider, .secondary {
+    display: none;
+  }
+}

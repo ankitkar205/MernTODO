@@ -1,0 +1,269 @@
+/* ================================
+   buttons.css
+   Interactive Controls (SEXY EDITION ✨)
+================================ */
+
+/* ---------- Base Button ---------- */
+button {
+  position: relative;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Perfect spacing if an icon is next to text */
+  
+  /* Buttery smooth, spring-like transitions */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ---------- Primary Button ---------- */
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-hover, var(--brand)) 100%);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 12px; /* Modern squircle shape */
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--brand) 35%, transparent);
+  overflow: hidden; /* For the shine effect */
+  z-index: 1;
+}
+
+/* ✨ The Shine Animation on Hover */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--brand) 45%, transparent);
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.96); /* Satisfying "press" squish */
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--brand) 30%, transparent);
+}
+
+/* ---------- Secondary Button ---------- */
+.btn-secondary {
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  backdrop-filter: blur(8px);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.65rem 1.3rem;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: color-mix(in srgb, var(--text) 20%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* ---------- Status Button (Task Completion) ---------- */
+.btn-status {
+  width: 100%;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  padding: 0.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px dashed var(--border);
+  transition: all 0.2s ease;
+}
+
+.btn-status:hover {
+  background: color-mix(in srgb, var(--brand) 8%, transparent);
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+/* ✨ Completed State */
+.btn-status.btn-completed {
+  background: color-mix(in srgb, var(--success, #10b981) 12%, transparent);
+  color: var(--success, #10b981);
+  border: 1px solid color-mix(in srgb, var(--success, #10b981) 30%, transparent);
+}
+
+.btn-status.btn-completed:hover {
+  background: color-mix(in srgb, var(--success, #10b981) 18%, transparent);
+  transform: scale(0.99); /* Gentle press down */
+}
+
+/* ---------- Small Buttons ---------- */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+
+/* ---------- Icon Buttons ---------- */
+.btn-icon,
+.btn-icon-sm {
+  background: transparent;
+  border-radius: 50%; /* Perfect circles for icons look much more premium */
+  color: var(--text-muted);
+  /* Remove spring transition for icons, keep it fast */
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-icon {
+  width: 34px;
+  height: 34px;
+}
+
+.btn-icon-sm {
+  width: 28px;
+  height: 28px;
+}
+
+.btn-icon:hover,
+.btn-icon-sm:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+  transform: scale(1.1); /* Slight pop out */
+}
+
+.btn-icon:active,
+.btn-icon-sm:active {
+  transform: scale(0.9); /* Squeeze on click */
+}
+
+/* ✨ Delete/Danger Icon Hover */
+.btn-icon.delete:hover,
+.btn-icon-sm.delete:hover {
+  background: color-mix(in srgb, var(--danger, #ef4444) 15%, transparent);
+  color: var(--danger, #ef4444);
+}
+
+/* ---------- Danger Button ---------- */
+.danger-btn {
+  background: color-mix(in srgb, var(--danger, #ef4444) 10%, transparent);
+  color: var(--danger, #ef4444);
+  padding: 0.65rem 1.3rem;
+  border-radius: 12px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.danger-btn:hover {
+  background: color-mix(in srgb, var(--danger, #ef4444) 15%, transparent);
+  border-color: color-mix(in srgb, var(--danger, #ef4444) 30%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--danger, #ef4444) 20%, transparent);
+}
+
+.danger-btn:active {
+  transform: scale(0.97);
+}
+
+/* ---------- View Switcher Buttons (iOS Segmented Control Style) ---------- */
+.view-btn {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.view-btn:hover {
+  color: var(--text);
+}
+
+/* ✨ Active Segment */
+.view-btn.active {
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 
+    0 2px 6px rgba(0,0,0,0.08), 
+    0 1px 1px rgba(0,0,0,0.04),
+    inset 0 0 0 1px color-mix(in srgb, var(--border) 50%, transparent);
+}
+
+/* ---------- Focus (Accessibility) ---------- */
+button:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 30%, transparent) !important;
+}
+
+/* ---------- Disabled State ---------- */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(100%);
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+button:disabled::after {
+  display: none; /* Turn off shine effect if disabled */
+}
+/* ================================
+   NEW: Success / Complete Button
+   (Add to bottom of buttons.css)
+================================ */
+
+.btn-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Emerald Gradient */
+  color: white;
+  padding: 0.55rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25); /* Green Glow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%); /* Brighter on hover */
+}
+
+.btn-success:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* If the task is ALREADY completed (Revert/Undo style) */
+.btn-success.is-completed {
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.btn-success.is-completed:hover {
+  background: var(--bg-soft);
+  color: var(--text);
+  border-color: var(--text-muted);
+}

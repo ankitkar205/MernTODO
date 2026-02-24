@@ -1,0 +1,58 @@
+/* =====================================
+   index.css
+   Global Base & Resets (NUCLEAR FIX)
+===================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* 1. FORCE RESET EVERYTHING */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. TARGET ROOT ELEMENTS SPECIFICALLY */
+html {
+  width: 100%;
+  height: 100%;
+  /* Force dark background immediately to hide white flash */
+  background-color: #020617; 
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  min-height: 100vh;
+  
+  /* Fallback Color (If variable fails, it stays dark) */
+  background-color: #020617; 
+  /* Actual Variable */
+  background-color: var(--bg);
+  
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  
+  /* Prevent horizontal scrollbars from elements overflowing */
+  overflow-x: hidden; 
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* Utilities */
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
