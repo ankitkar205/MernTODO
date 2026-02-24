@@ -52,7 +52,7 @@ This project was built to demonstrate proficiency in **Frontend Development (Rea
 ---
 ## 📁 Project Structure
 
-<img src="structure.png" alt="Project Structure" />
+<img src=Structure.png" alt="Project Structure" />
 
 ---
 
