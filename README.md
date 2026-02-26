@@ -11,6 +11,24 @@
 This project was built to demonstrate proficiency in **Frontend Development (React/Vite)**, **Backend API Design (Node/Express)**, **Database Management (MongoDB)**, and **DevOps (Docker)**.
 
 ---
+## 📸 Project Gallery
+
+| 🦉 Secure Login (Interactive Owl) | ⚙️ Settings (Dynamic Scaling) |
+| :---: | :---: |
+| <img src="screenshots/1.png" width="450" alt="Login Page"> | <img src="screenshots/4.png" width="450" alt="Settings Page"> |
+
+| 🌙 Smart Dashboard (Dark Mode) | ☀️ Smart Dashboard (Light Mode) |
+| :---: | :---: |
+| <img src="screenshots/2.png" width="450" alt="Dashboard Dark"> | <img src="screenshots/5.png" width="450" alt="Dashboard Light"> |
+
+<br>
+
+<div align="center">
+  <h3>⏱️ Focus Mode (Pomodoro & Stopwatch)</h3>
+  <img src="screenshots/3.png" width="800" alt="Focus Mode" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+</div>
+
+---
 
 ## ✨ Features
 
